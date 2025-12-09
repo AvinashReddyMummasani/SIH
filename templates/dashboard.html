@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FARMGUIDE Dashboard</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="dashboard-container">
+
+    <!-- Left menu -->
+    <div class="left-bar">
+        <button data-feature="Weather">Weather</button>
+        <button data-feature="Chatbot">Chatbot</button>
+        <button data-feature="Upload Image">Upload Image</button>
+        <button data-feature="Market Prices">Market Prices</button>
+        <button data-feature="Notifications">Alerts</button>
+    </div>
+
+    <!-- Main content -->
+    <div class="main-content" id="main-content">
+        <h2>Welcome to FARMGUIDE</h2>
+        <p>Select a feature from the left menu to get started.</p>
+    </div>
+
+    <!-- Right profile -->
+    <div class="right-bar" id="profile-bar">
+        <h3>Profile</h3>
+        <div id="profile-info">
+            <p>Full Name: John Doe</p>
+            <p>Age: 30</p>
+            <p>Gender: Male</p>
+            <p>Contact: 9999999999</p>
+            <p>Location: Telangana</p>
+            <button onclick="editProfile()">Edit Profile</button>
+        </div>
+    </div>
+
+</div>
+<script src="js/main.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/weather.js"></script>
+<script src="js/chatbot.js"></script>
+<script src="js/crop.js"></script>
+<script src="js/prices.js"></script>
+<script src="js/notifications.js"></script>
+</body>
+</html>

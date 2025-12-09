@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FARMGUIDE Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body style="margin:0;font-family:Arial,sans-serif;" onload="checkLogin()">
+
+  <!-- HEADER -->
+  <header style="background:#2e7d32;color:white;padding:15px;text-align:center;position:relative;">
+    <img src="images/logo.png" alt="FARMGUIDE Logo" style="height:50px;vertical-align:middle;">
+    <span style="font-size:2rem;font-weight:bold;margin-left:15px;">FARMGUIDE</span>
+    <p style="font-style:italic;margin:5px 0 0;">"Smart Farming for Every Farmer"</p>
+    <div id="user-greet" style="position:absolute;top:15px;right:15px;font-size:1rem;">
+      <span id="username"></span> | 
+      <a href="#" onclick="logout()" style="color:white;text-decoration:underline;">Logout</a>
+    </div>
+  </header>
+
+  <!-- BODY -->
+  <div style="display:flex;height:calc(100vh - 120px);">
+
+    <!-- LEFT SIDEBAR -->
+    <div style="width:220px;background:#81c784;display:flex;flex-direction:column;padding:15px;gap:15px;">
+      <button onclick="loadWeather()" style="padding:15px;font-size:1.1rem;border:none;border-radius:8px;background:#388e3c;color:white;cursor:pointer;">🌤️ Weather</button>
+      <button onclick="loadChatbot()" style="padding:15px;font-size:1.1rem;border:none;border-radius:8px;background:#1e88e5;color:white;cursor:pointer;">💬 Chatbot</button>
+      <button onclick="loadCropUpload()" style="padding:15px;font-size:1.1rem;border:none;border-radius:8px;background:#43a047;color:white;cursor:pointer;">🌱 Upload Image</button>
+      <button onclick="loadMarket()" style="padding:15px;font-size:1.1rem;border:none;border-radius:8px;background:#f57c00;color:white;cursor:pointer;">💰 Market Prices</button>
+      <button onclick="loadNotifications()" style="padding:15px;font-size:1.1rem;border:none;border-radius:8px;background:#d32f2f;color:white;cursor:pointer;">🔔 Notifications</button>
+      <button onclick="loadFertilizer()" style="padding:15px;font-size:1.1rem;border:none;border-radius:8px;background:#6a1b9a;color:white;cursor:pointer;">🧪 Fertilizer</button>
+      <button onclick="loadcrop_recommender()" style="padding:15px;font-size:1.1rem;border:none;border-radius:8px;background:#1ccf45;color:white;cursor:pointer;">🌱 Crop Recom</button>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main-content" style="flex:1;padding:20px;overflow-y:auto;background:linear-gradient(120deg,#f1f8e9,#e8f5e9);">
+      <h2>Welcome to FARMGUIDE Dashboard</h2>
+      <p>Select a feature from the left sidebar to get started.</p>
+    </div>
+
+    <!-- RIGHT SIDEBAR -->
+    <div style="width:200px;background:#aed581;display:flex;flex-direction:column;padding:15px;">
+      <button onclick="loadProfile()" style="padding:15px;font-size:1.1rem;border:none;border-radius:8px;background:#689f38;color:white;cursor:pointer;">👤 Profile</button>
+    </div>
+
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="{{ url_for('static', filename='js/weather.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/crop.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/prices.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/notifications.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/fertilizer.js') }}?v=1.0.3"></script>
+  <script src="{{ url_for('static', filename='js/crop_recommender.js') }}?v=1.0.3"></script>
+
+  <script>
+    // LOGIN CHECK
+    function checkLogin() {
+      const user = JSON.parse(localStorage.getItem("currentUser"));
+      if (!user) {
+        window.location.href = "landing.html";
+      } else {
+        document.getElementById("username").innerText = user.fullname;
+      }
+    }
+
+    // LOGOUT
+    function logout() {
+      localStorage.removeItem("currentUser");
+      window.location.href = "landing.html";
+    }
+  </script>
+
+</body>
+</html>
+

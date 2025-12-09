@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FARMGUIDE</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg,#4caf50,#81c784,#c8e6c9);
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    font-size: 6rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    text-shadow: 4px 4px #2e7d32;
+}
+
+p {
+    font-size: 2rem;
+    font-style: italic;
+    margin-bottom: 50px;
+    text-shadow: 2px 2px #2e7d32;
+}
+
+button {
+    padding: 20px 50px;
+    font-size: 1.5rem;
+    margin: 0 20px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+button.signup {
+    background: linear-gradient(45deg,#2e7d32,#4caf50);
+    color: white;
+}
+
+button.signup:hover {
+    background: linear-gradient(45deg,#1b5e20,#388e3c);
+    transform: scale(1.05);
+}
+
+button.login {
+    background: linear-gradient(45deg,#1e88e5,#42a5f5);
+    color: white;
+}
+
+button.login:hover {
+    background: linear-gradient(45deg,#1565c0,#1e88e5);
+    transform: scale(1.05);
+}
+</style>
+</head>
+<body>
+
+<img src="images/logo.png" alt="FARMGUIDE Logo" style="height:120px;margin-bottom:30px;">
+<h1>FARMGUIDE</h1>
+<p>“Smart Farming for Every Farmer”</p>
+
+<div>
+    <button class="signup" onclick="window.location.href='signup.html'">Sign Up</button>
+    <button class="login" onclick="window.location.href='login.html'">Log In</button>
+</div>
+
+</body>
+</html>
